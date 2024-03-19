@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Mono:wght@400;500&display=swap');
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: #131212;
+}
+
+.container {
+  text-align: center;
+  color: #000;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(https://assets.codepen.io/210284/flower-10.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 5rem;
+  font-weight: bold;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 1em;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.empty-space {
+  width: 100%;
+  min-height: 90vh;
+  background-color: #131212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  max-width: 70ch;
+  line-height: 1.5;
+  color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.scroll {
+  height: 1200px;
+  background-image:url(https://assets.codepen.io/210284/snake-1.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  flex-direction: row;
+  gap: 1.6em;
+}
+
+.content {
+  display: flex;
+  max-width: 360px;
+  background-color: #fffaf2;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: 0px 29px 38px -15px rgba(0,0,0,0.43);
+  -moz-box-shadow: 0px 29px 38px -15px rgba(0,0,0,0.43);
+  box-shadow: 0px 29px 38px -15px rgba(0,0,0,0.43);
+}
+
+.text {
+  font-size: 1.2rem;
+  padding: 0.3rem 0.8rem;
+}
+
+a {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  /* background-color: #1c7d5e; */
+  color: white;
+  border-radius: 0.2rem;
+  font-size: .8em;
+  font-weight: bold;
+  letter-spacing: .5px;
+  text-decoration: none;
+}
+
+.img {
+  width: 90%;
+  height: 220px;
+  margin-top: 20px;
+  border-radius: 0.3rem;;
+  background-color: lightgrey;
+  background-size: cover;
+  background-position: center;
+}
+
+.image-one {
+  background-image: url(https://assets.codepen.io/210284/flower-3.jpg);
+}
+
+.image-two {
+  background-image: url(https://assets.codepen.io/210284/flower-2.jpg);
+}
+
+.image-three {
+  background-image: url(https://assets.codepen.io/210284/flower-1.jpg);
+}
+
+.image-four {
+  background-image: url(https://assets.codepen.io/210284/flower-4.jpg);
+}
+
+.card > a {
+  margin-bottom: 1.5rem;
+}
+
+
+.blank {
+  width: 100%;
+  min-height: 50vh;
+  background-color: #131212;
+}
+
+.scroll-two {
+  height: 1200px;
+  background-image:url(https://assets.codepen.io/210284/parrot-1.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  flex-direction: row;
+  gap: 1.6em;
+}
+
+.nav {
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    line-height: 65px;
+    text-align: center;
+}
+
+.nav div.logo {
+    float: left;
+    width: auto;
+    height: auto;
+    padding-left: 3rem;
+}
+
+.nav div.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.5rem;
+}
+
+.nav div.logo a:hover {
+    color: #00E676;
+}
+
+.nav div.main_list {
+    height: 65px;
+    float: right;
+}
+
+.nav div.main_list ul {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav div.main_list ul li {
+    width: auto;
+    height: 65px;
+    padding: 0;
+    padding-right: 3rem;
+}
+
+.nav div.main_list ul li a {
+    text-decoration: none;
+    color: #1b78be;
+    line-height: 65px;
+    font-size: 2.4rem;
+}
+
+.nav div.main_list ul li a:hover {
+    color: #00E676;
+}
+
+
+    </style>
+</head>
+<body>
+   <%-include('nav')%>
+
+
+    <div class="container">
+        <h1>Scroll down</h1>
+      </div>
+    
+      <div class="empty-space">
+        <p class="intro">Parallax scrolling is a web design technique where background images move slower than foreground
+          images/text when a user scrolls down a webpage.
+          This creates an illusion of depth and adds a visually appealing, interactive element to the website.
+          Parallax scrolling can be used to enhance storytelling, engage users, and create a more immersive browsing
+          experience.
+        </p>
+      </div>
+    
+      <div class="container scroll">
+        <div class="content">
+          <div class="img image-one"></div>
+          <div class="card">
+            <h2>Background Layers</h2>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.
+            </p>
+            <a href="#" style=" background-color: #7d1c25;">Read more</a>
+          </div>
+        </div>
+    
+        <div class="content">
+          <div class="img image-two"></div>
+          <div class="card">
+            <h2>Scrolling Effect</h2>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.</p>
+            <a href="#" style=" background-color: #7d1c25;">Read more</a>
+          </div>
+        </div>
+    
+      </div>
+    
+      <div class="blank"></div>
+    
+      <div class="container">
+        <h1>Parallax Scrolling Page</h1>
+      </div>
+    
+      <div class="empty-space">
+        <p class="intro">Parallax scrolling is a web design technique where background images move slower than foreground
+          images/text when a user scrolls down a webpage.
+          This creates an illusion of depth and adds a visually appealing, interactive element to the website.
+          Parallax scrolling can be used to enhance storytelling, engage users, and create a more immersive browsing
+          experience.
+        </p>
+      </div>
+    
+      <div class="container scroll-two">
+        <div class="content">
+          <div class="img image-three"></div>
+          <div class="card">
+            <h2>Depth Perception</h2>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.
+            </p>
+            <a href="#" style=" background-color: #7d1c25;">Read more</a>
+          </div>
+        </div>
+    
+        <div class="content">
+          <div class="img image-four"></div>
+          <div class="card">
+            <h2>Interactivity</h2>
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua.</p>
+            <a href="#" style=" background-color: #7d1c25;">Read more</a>
+          </div>
+        </div>
+    
+      </div>
+    
+</body>
+</html>

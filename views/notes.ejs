@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.semanticui.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"></link>
+   </head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <!-- Navbar content -->
+  <div class="container-fluid">
+    <a href="/"><img src="logo.png" alt="Logo" width="40"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="https://manojdadheech.github.io/portfolio/" class="nav-link" target="_blank">About</a>
+        </li>
+        
+        
+
+          <% if(req.cookies.token) {%>
+            <li class="nav-item"><a href="/logout" class="nav-link" >Log Out (<%= req.cookies.name %>)</a></li>
+         <% } else { %>
+             <li class="nav-item"><a href="/Login  "  class="nav-link">Log In</a></li>
+         <% }%>
+
+
+
+
+        
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+    
+    
+    <div class="row mt-5">
+        <!-- Column -->
+        <div class="col-md-5 ">
+
+        
+				    <div class="card ">
+				        <h4 class="modal-title text-uppercase text-info">Insert Notes</h4>
+				        
+				    </div>
+
+                    <form  method="post">
+				    <div class="card-body">
+                        <input type="hidden" name="userId" value="<%=userId%>" />
+				      	<div class="form-group">
+				      		<label for="title">Title:</label>
+				      		<input type="text" name="title" id="title" autocomplete="off" class="form-control" placeholder="Enter title" required>
+				      	</div>
+				      	<div class="form-group">
+				      		<label for="description">Description:</label>
+				      		<textarea name="description" id="description" autocomplete="off"  class="form-control" placeholder="Enter description " rows="25"  required></textarea>
+
+				      	</div>
+				      
+				        
+				    </div>
+				    <div >
+				      <button type="submit" class="btn  btn-primary m-1 float-auto">Submit</button>
+				    </div>
+
+                    </form>
+			   
+
+
+        </div>
+        <!-- Column -->
+        
+        <div class="col-md-7">  
+        
+       
+        
+
+<table id="example" class="ui celled table" style="width:100%">
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <%notes.forEach(function (note, index) { %>
+             <tr>
+               <td><%= note.title %></td>
+               <td>
+                <a href="/notes/<%=note._id%>/edit" class="ui button green">View</a>  
+                <a href="/notes/<%=note._id%>/delete" class="ui button red">Delete</a> 
+               </td>             
+             </tr>
+            <%});%>
+           
+
+                
+        </tbody>
+       
+    </table>
+
+    </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.semanticui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
+         <script>
+
+    jQuery(document).ready(function($) {
+        $('#example').DataTable();
+});
+        </script>
+
+
+
+</body>
+</html>
